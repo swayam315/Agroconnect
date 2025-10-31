@@ -1851,7 +1851,7 @@ $role = $_SESSION['role'];
                 const response = await fetch('../api/booking_get_my.php');
                 const result = await response.json();
 
-                if (result.success) {
+                if (result.status === 'success') {
                     bookingsData = result.data;
                     renderMyBookings(bookingsData);
                 } else {

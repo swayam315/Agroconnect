@@ -1932,7 +1932,7 @@ $role = $_SESSION['role'];
                 const response = await fetch('../api/notifications_get_my.php');
                 const result = await response.json();
 
-                if (result.success) {
+                if (result.status === 'success') {
                     notificationsData = result.data;
                     renderNotifications(notificationsData);
                 } else {

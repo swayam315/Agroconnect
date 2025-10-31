@@ -1459,6 +1459,11 @@ $role = $_SESSION['role'];
                 // Prepare form data
                 const formData = new FormData(form);
 
+                // Determine if this is an add or update operation
+                const equipmentId = document.getElementById('equipmentId').value;
+                const isUpdate = equipmentId !== '';
+                const apiUrl = isUpdate ? '../api/equipment_update.php' : '../api/equipment_add.php';
+
                 // Show loading
                 const submitBtn = document.getElementById('equipmentSubmitBtn');
                 const submitText = document.getElementById('equipmentSubmitText');
@@ -1467,7 +1472,7 @@ $role = $_SESSION['role'];
                 submitText.innerHTML = '<div class="loading-spinner"></div> Saving...';
 
                 try {
-                    const response = await fetch('../api/equipment_add.php', {
+                    const response = await fetch(apiUrl, {
                         method: 'POST',
                         body: formData
                     });

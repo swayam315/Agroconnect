@@ -1195,7 +1195,7 @@ $role = $_SESSION['role'];
 
                     <div class="cost-preview" id="costPreview" style="display: none;">
                         <div class="cost-preview-label">Estimated Total</div>
-                        <div class="cost-preview-amount" id="costAmount">¹0</div>
+                        <div class="cost-preview-amount" id="costAmount">ï¿½0</div>
                         <div class="cost-preview-duration" id="costDuration"></div>
                     </div>
 
@@ -1345,7 +1345,7 @@ $role = $_SESSION['role'];
                 const response = await fetch('../api/equipment_get_my.php');
                 const result = await response.json();
 
-                if (result.success) {
+                if (result.status === 'success') {
                     myEquipmentData = result.data;
                     renderMyEquipment(myEquipmentData);
                 } else {
@@ -1381,7 +1381,7 @@ $role = $_SESSION['role'];
                     }
                     <div class="equipment-details">
                         <h3 class="equipment-name">${item.equipment_name}</h3>
-                        <p class="equipment-price">¹${item.rental_price} ${item.price_unit === 'per_day' ? 'per day' : 'per hour'}</p>
+                        <p class="equipment-price">ï¿½${item.rental_price} ${item.price_unit === 'per_day' ? 'per day' : 'per hour'}</p>
                         <span class="status-badge ${item.is_active == 1 ? 'active' : 'inactive'}">
                             ${item.is_active == 1 ? 'Active' : 'Inactive'}
                         </span>
@@ -1608,7 +1608,7 @@ $role = $_SESSION['role'];
                     }
                     <div class="equipment-details">
                         <h3 class="equipment-name">${item.equipment_name}</h3>
-                        <p class="equipment-price">¹${item.rental_price} ${item.price_unit === 'per_day' ? 'per day' : 'per hour'}</p>
+                        <p class="equipment-price">ï¿½${item.rental_price} ${item.price_unit === 'per_day' ? 'per day' : 'per hour'}</p>
                         <p class="equipment-owner">Owner: ${item.owner_name || 'Unknown'}</p>
                         <div class="equipment-actions">
                             <button class="btn btn-primary btn-small" onclick="openBookingModal(${item.equipment_id})">
@@ -1659,7 +1659,7 @@ $role = $_SESSION['role'];
             // Render equipment summary
             document.getElementById('bookingEquipmentSummary').innerHTML = `
                 <h3>${equipment.equipment_name}</h3>
-                <p class="equipment-summary-detail"><strong>Price:</strong> ¹${equipment.rental_price} ${equipment.price_unit === 'per_day' ? 'per day' : 'per hour'}</p>
+                <p class="equipment-summary-detail"><strong>Price:</strong> ï¿½${equipment.rental_price} ${equipment.price_unit === 'per_day' ? 'per day' : 'per hour'}</p>
                 <p class="equipment-summary-detail"><strong>Owner:</strong> ${equipment.owner_name || 'Unknown'}</p>
             `;
 
@@ -1754,7 +1754,7 @@ $role = $_SESSION['role'];
                 const duration = calculateDuration();
                 const unit = priceUnit === 'per_day' ? 'days' : 'hours';
 
-                document.getElementById('costAmount').textContent = '¹' + cost;
+                document.getElementById('costAmount').textContent = 'ï¿½' + cost;
                 document.getElementById('costDuration').textContent = `(${duration} ${unit})`;
                 document.getElementById('costPreview').style.display = 'block';
             } else {
@@ -1902,7 +1902,7 @@ $role = $_SESSION['role'];
                             </div>
                             <div class="booking-detail">
                                 <i class="fas fa-rupee-sign"></i>
-                                <span><strong>Total Cost:</strong> ¹${booking.total_cost}</span>
+                                <span><strong>Total Cost:</strong> ï¿½${booking.total_cost}</span>
                             </div>
                             <div class="booking-detail">
                                 <i class="fas fa-clock"></i>

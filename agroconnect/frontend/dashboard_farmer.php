@@ -1474,7 +1474,7 @@ $role = $_SESSION['role'];
 
                     const result = await response.json();
 
-                    if (result.success) {
+                    if (result.status === 'success') {
                         showToast('Equipment saved successfully!', 'success');
                         closeEquipmentModal();
                         loadMyEquipment();

@@ -1572,7 +1572,7 @@ $role = $_SESSION['role'];
                 const response = await fetch('../api/equipment_get_available.php');
                 const result = await response.json();
 
-                if (result.success) {
+                if (result.status === 'success') {
                     availableEquipmentData = result.data;
                     renderAvailableEquipment(availableEquipmentData);
                 } else {

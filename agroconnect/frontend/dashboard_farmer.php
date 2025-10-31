@@ -1550,7 +1550,7 @@ $role = $_SESSION['role'];
 
                 const result = await response.json();
 
-                if (result.success) {
+                if (result.status === 'success') {
                     showToast('Equipment status updated!', 'success');
                     loadMyEquipment();
                 } else {

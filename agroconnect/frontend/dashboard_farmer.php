@@ -1722,7 +1722,7 @@ $role = $_SESSION['role'];
 
                     const result = await response.json();
 
-                    if (result.success) {
+                    if (result.status === 'success') {
                         showToast('Booking request submitted! You\'ll be notified once approved.', 'success');
                         closeBookingModal();
                         loadMyBookings();
